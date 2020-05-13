@@ -1,3 +1,4 @@
+<?php include_once 'includes/funciones/conexiones.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,18 +23,24 @@
 <div class="login-box">
   <div class="login-logo">
     <a href="#" style="color:#FFF;"><b>Login</b></a>
+
+    <?php if(isset($_SESSION['error_login'])): ?>
+      <div class="">
+        <p style="color:#f56954; font-weight: 600;"><?=$_SESSION['error_login'];?></p>
+      </div>
+      <?php endif; ?>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Ingresar</p>
 
-    <form action="#" method="post">
+    <form action="includes/back/login.php" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Usuario">
+        <input name="usuario" type="text" class="form-control" placeholder="Usuario">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input name="password" type="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
