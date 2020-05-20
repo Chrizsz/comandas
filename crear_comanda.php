@@ -1,7 +1,7 @@
 <?php
 
-include_once 'includes/funciones/conexiones.php';
-if(isset($_SESSION['usuario'])):
+// include_once 'includes/funciones/conexiones.php';
+// if(isset($_SESSION['usuario'])):
 
  ?>
 <?php include_once 'includes/templates/header.php';  ?>
@@ -41,10 +41,25 @@ if(isset($_SESSION['usuario'])):
               </select>
             </div>
 
+            <div class="col-md-3">
+              <label for="">Clientes por mesa</label>
+              <select class="form-control" id="noClientesMesa" name="noClientesMesa">
+                <option value="">--Selecciona una opción--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+
           </div>
 
-          <div class="form-group col-md-12">
+          <div id="resultadoClientesMesa">
 
+          </div>
+
+          <!-- <div class="form-group col-md-12">
+            <h3>Cliente 1</h3>
             <div class="col-md-3">
               <label for="">Platillos</label>
               <select class="form-control" name="">
@@ -98,7 +113,7 @@ if(isset($_SESSION['usuario'])):
             <label for="">Cantidad</label>
             <input type="number" name="" class="form-control">
           </div>
-        </div>
+        </div> -->
 
       </div>
 
@@ -117,11 +132,13 @@ if(isset($_SESSION['usuario'])):
 
   <div class="control-sidebar-bg"></div>
 </div>
+
+
 <!-- ./wrapper -->
 <?php include_once 'includes/templates/footer.php';  ?>
 <?php
-  else:
-  $_SESSION['error_login'] = '¡Error al ingresar sesión!';
-  header('location: index.php');
-  endif;
+  // else:
+  // $_SESSION['error_login'] = '¡Error al ingresar sesión!';
+  // header('location: index.php');
+  // endif;
  ?>
