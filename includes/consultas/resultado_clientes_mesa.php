@@ -1,5 +1,5 @@
 <?php
-
+include_once '../funciones/conexiones.php';
 
 $noClientesMesa = $_GET['noClientesMesa'];
 
@@ -12,11 +12,13 @@ for($i=0;$i<$noClientesMesa;$i++){
       <label for="">Platillos</label>
       <select class="form-control" name="platillo'.($i+1).'">
         <option value="">--Selecciona una opción--</option>
-        <option value="1">Arrachera</option>
-        <option value="2">Hamburguesa</option>
-        <option value="3">Pizza</option>
-        <option value="4">Tacos</option>
-      </select>
+        ';
+        $Q_Platillo = "SELECT id_menu, descripcion from menu where id_tipo_menu=1";
+        $E_Platillo = pg_query($conexionCon,$Q_Platillo) or die('Error en consulta');
+        while ($row = pg_fetch_row($E_Platillo)){
+          echo '<option value="'.$row[0].'">'.$row[1].'</option>';
+        }
+echo '</select>
     </div>
 
     <div class="col-md-3">
@@ -31,17 +33,20 @@ for($i=0;$i<$noClientesMesa;$i++){
 <div class="form-group col-md-12">
   <div class="col-md-3">
     <label for="">Bebidas</label>
-    <select class="form-control" name="">
+    <select class="form-control" name="bebidas'.($i+1).'">
       <option value="">--Selecciona una opción--</option>
-      <option value="1">Refresco</option>
-      <option value="2">Agua de sabor</option>
-      <option value="3">Cerveza</option>
-    </select>
+      ';
+      $Q_Bebidas = "SELECT id_menu, descripcion from menu where id_tipo_menu=3";
+      $E_Bebidas = pg_query($conexionCon,$Q_Bebidas) or die('Error en consulta');
+      while ($row = pg_fetch_row($E_Bebidas)){
+        echo '<option value="'.$row[0].'">'.$row[1].'</option>';
+      }
+echo '</select>
   </div>
 
   <div class="col-md-3">
     <label for="">Cantidad</label>
-    <input type="number" name="" class="form-control">
+    <input type="number" name="bebidasCantidad'.($i+1).'" class="form-control">
   </div>
 
 </div>
@@ -49,17 +54,20 @@ for($i=0;$i<$noClientesMesa;$i++){
 <div class="form-group col-md-12">
   <div class="col-md-3">
     <label for="">Postre</label>
-    <select class="form-control" name="">
+    <select class="form-control" name="postre'.($i+1).'">
       <option value="">--Selecciona una opción--</option>
-      <option value="1">Pay</option>
-      <option value="2">Gelatina</option>
-      <option value="3">Chocolate</option>
-    </select>
+      ';
+      $Q_Platillo = "SELECT id_menu, descripcion from menu where id_tipo_menu=2";
+      $E_Platillo = pg_query($conexionCon,$Q_Platillo) or die('Error en consulta');
+      while ($row = pg_fetch_row($E_Platillo)){
+        echo '<option value="'.$row[0].'">'.$row[1].'</option>';
+      }
+echo '</select>
   </div>
 
   <div class="col-md-3">
     <label for="">Cantidad</label>
-    <input type="number" name="" class="form-control">
+    <input type="number" name="postreCantidad'.($i+1).'" class="form-control">
   </div>
 </div>';
 }
