@@ -35,16 +35,13 @@ if(isset($_SESSION['usuario'])):
               <div class="col-md-3">
                 <label for="">Mesa</label>
                 <select class="form-control" name="mesa">
-                  <option value="">--Selecciona una opción--</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
+                  <?php
+                  $Q_Mesa = "SELECT id_mesa from mesa where disponible='t'";
+                  $E_Mesa = pg_query($conexionCon,$Q_Mesa) or die('Error en consulta');
+                  while ($row = pg_fetch_row($E_Mesa)){
+                    echo '<option value="'.$row[0].'">'.$row[0].'</option>';
+                  }
+                   ?>
                 </select>
               </div>
 
