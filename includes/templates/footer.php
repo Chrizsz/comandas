@@ -11,6 +11,9 @@
 
 <script src="js/funciones.js"></script>
 
+<script src="js/show_modal_cobrar.js"></script>
+
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

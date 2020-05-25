@@ -9,6 +9,21 @@
 
       <li class="treeview">
         <a href="#">
+           <span>COMANDAS</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="crear_comanda.php"><i class="fa fa-circle-o"></i> NUEVA COMANDA</a></li>
+          <li><a href="cocinero.php"><i class="fa fa-circle-o"></i> COCINERO</a></li>
+          <li><a href="mesero.php"><i class="fa fa-circle-o"></i> MESERO</a></li>
+          <li><a href="cobrar_comanda.php"><i class="fa fa-circle-o"></i> COBRAR</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
            <span>EMPLEADOS</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -16,19 +31,6 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="usuarios.php"><i class="fa fa-circle-o"></i> USUARIOS</a></li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-           <span>COMANDAS</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href=""><i class="fa fa-circle-o"></i> USUARIOS</a></li>
-          <li><a href=""><i class="fa fa-circle-o"></i> COMANDAS</a></li>
         </ul>
       </li>
 

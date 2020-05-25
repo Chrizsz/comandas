@@ -25,7 +25,7 @@ if(isset($_SESSION['usuario'])):
         <!-- Default box -->
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Platillos pendientes</h3>
+            <h3 class="box-title">Platillos para llevar</h3>
           </div>
           <div class="box-body">
 
@@ -39,8 +39,8 @@ if(isset($_SESSION['usuario'])):
                 <th>Platillos</th>
                 <th>Cantidad</th>
                 <th>Mesa</th>
-                <th>Preparar</th>
-                <th>Listo</th>
+                <th>Llevar</th>
+                <th>Entregado</th>
 
 
               </tr>
@@ -50,15 +50,16 @@ if(isset($_SESSION['usuario'])):
             <tbody>
 
               <?php
-              $Q_ComandaCocinar = "SELECT tickets.id_ticket, menu.descripcion, sum(pedidos.cantidad_menu), tickets.mesa,
-              estatus_pedido.cocinando, estatus_pedido.cocinado FROM pedidos
+              $Q_ComandaLlevar = "SELECT tickets.id_ticket, menu.descripcion, sum(pedidos.cantidad_menu), tickets.mesa,
+              estatus_pedido.llevando, estatus_pedido.llevado FROM pedidos
               inner join menu on pedidos.id_menu = menu.id_menu
               inner join tickets on pedidos.id_ticket = tickets.id_ticket
-			        inner join estatus_pedido on estatus_pedido.id_ticket = pedidos.id_ticket where estatus_pedido.cocinado='0'
-              group by menu.descripcion, tickets.id_ticket, estatus_pedido.cocinando, estatus_pedido.cocinado
-			        order by tickets.id_ticket";
-              $E_ComandaCocinar = pg_query($conexionCon,$Q_ComandaCocinar) or die('Error en consulta');
-              while ($row = pg_fetch_row($E_ComandaCocinar)){
+			        inner join estatus_pedido on estatus_pedido.id_ticket = pedidos.id_ticket
+              where estatus_pedido.cocinado='1' and estatus_pedido.llevado='0'
+              group by menu.descripcion, tickets.id_ticket, estatus_pedido.llevando, estatus_pedido.llevado
+			        order by tickets.id_ticket ";
+              $E_ComandaLlevar = pg_query($conexionCon,$Q_ComandaLlevar) or die('Error en consulta');
+              while ($row = pg_fetch_row($E_ComandaLlevar)){
                 echo '<tr>
                       <td>'.$row[0].'</td>
                       <td>'.$row[1].'</td>
@@ -66,12 +67,12 @@ if(isset($_SESSION['usuario'])):
                       <td>'.$row[3].'</td>
                       <td>';
                       if($row[4]=='f'){
-                        echo '<a href="includes/consultas/update_cocinando.php?id_ticket='.$row[0].'" class="btn btn-warning">Cocinar/procesar</a>';
+                        echo '<a href="includes/consultas/update_llevando.php?id_ticket='.$row[0].'" class="btn btn-warning">Llevar</a>';
                       }else{
-                        echo '<button class="btn btn-success btn-xs">Cocinando</button>';
+                        echo '<button class="btn btn-success btn-xs">Llevando</button>';
                       }
               echo  '</td>
-                      <td><a href="includes/consultas/update_cocinado.php?id_ticket='.$row[0].'" class="btn btn-warning">Listo</a></td>
+                      <td><a href="includes/consultas/update_llevado.php?id_ticket='.$row[0].'" class="btn btn-warning">Dar por entregado</a></td>
                       <tr/>';
               }
                ?>
@@ -88,7 +89,10 @@ if(isset($_SESSION['usuario'])):
 
         </div>
 
+
+
       </div>
+
 
 
 
