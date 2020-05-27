@@ -63,12 +63,6 @@ if(isset($_SESSION['usuario'])):
             }
              ?>
 
-            <tr>
-
-
-
-            </tr>
-
           </tbody>
 
         </table>
