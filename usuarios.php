@@ -1,159 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Comandas</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/skin-black-light.css">
+<?php
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+include_once 'includes/funciones/conexiones.php';
+if(isset($_SESSION['usuario'])):
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
-
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="#" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Com</b></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Sistema</b> comandas</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-              <span class="hidden-xs">Christian Gómez</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-
-                <p>
-                  Christian Gómez
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Salir</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- =============================================== -->
-
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MENÚ</li>
-
-        <li class="treeview">
-          <a href="#">
-             <span>EMPLEADOS</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="usuarios.php"><i class="fa fa-circle-o"></i> USUARIOS</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-             <span>COMANDAS</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> USUARIOS</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> COMANDAS</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-             <span>REPORTES</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> USUARIOS</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> COMANDAS</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-             <span>INVENTARIOS</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> USUARIOS</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> COMANDAS</a></li>
-          </ul>
-        </li>
+ ?>
+<?php include_once 'includes/templates/header.php';  ?>
 
 
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- =============================================== -->
+<?php include_once 'includes/templates/aside_menu.php';  ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -170,7 +24,8 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Usuarios</h3>
+          <h3 class="box-title">Usuarios</h3> <br>
+          <button type="button" class="btn btn-primary" name="button" data-toggle="modal" data-target="#crearUsuarios">Agregar usuario</button>
         </div>
         <div class="box-body">
 
@@ -187,7 +42,7 @@
               <th>Área</th>
               <th>Estado</th>
 
-              <th>Acciones</th>
+              <th>Editar</th>
 
             </tr>
 
@@ -195,47 +50,34 @@
 
           <tbody>
 
-            <tr>
+            <?php
+            $Q_Usuarios = "SELECT empleados.id_empleado, empleados.nombres, empleados.apellido_paterno,
+            empleados.apellido_materno, empleados.usuario, area.area, empleados.id_estatus FROM
+            empleados inner join area on empleados.id_area = area.id_area order by empleados.id_empleado";
+            $E_Usuarios = pg_query($conexionCon,$Q_Usuarios) or die('Error en consulta');
+            while ($row = pg_fetch_row($E_Usuarios)){
+              echo '<tr>
+                    <td>'.$row[0].'</td>
+                    <td>'.$row[1].' '.$row[2].' '.$row[3].'</td>
+                    <td>'.$row[4].'</td>
+                    <td>'.$row[5].'</td>
+                    <td>';
+                    if($row[6]=='t'){
+                      echo '<button class="btn btn-success btn-xs btnActivar" idUsuario='.$row[0].' estadoUsuario="1">Activado</button>';
+                    }else{
+                      echo '<button class="btn btn-danger btn-xs btnActivar" idUsuario='.$row[0].' estadoUsuario="0">Desactivado</button>';
+                    }
 
-              <td>1</td>
-              <td>Alberto Alvirde</td>
-              <td>Admin</td>
+              echo'</td>
+                    <td><div class="btn-group">
 
-              <td>Mesero</td>
-              <td><button class="btn btn-success btn-xs">Activado</button></td>
+                      <button class="btn btn-warning" onclick="editarUsuario('.$row[0].')"><i class="fa fa-pencil"></i></button>
 
-              <td>
-                <div class="btn-group">
+                    </div></td>
+                    <tr/>';
+            }
+             ?>
 
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                </div>
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td>2</td>
-              <td>Christian Gómez</td>
-              <td>cgomez</td>
-
-              <td>Gerente</td>
-              <td><button class="btn btn-danger btn-xs">Desactivado</button></td>
-
-              <td>
-                <div class="btn-group">
-
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                </div>
-              </td>
-
-            </tr>
 
           </tbody>
 
@@ -249,29 +91,98 @@
 
     </section>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
 
+    <div id="resultadoEditarUsuario"></div>
+
+    <!-- Modal -->
+<div class="modal fade" id="crearUsuarios">
+  <div class="modal-dialog  modal-lg" role="document">
+
+    <form class="" action="includes/back/usuario_nuevo.php" method="post">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Nuevo usuario</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group col-md-12">
+
+            <div class="col-md-6">
+              <label for="">Usuario</label>
+              <input type="text" class="form-control" name="usuario" value="" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="">Nombres</label>
+              <input type="text" class="form-control" name="nombres" value="" required>
+            </div>
+
+
+
+          </div>
+
+          <div class="form-group col-md-12">
+
+            <div class="col-md-6">
+              <label for="">Apellido Paterno</label>
+              <input type="text" class="form-control" name="ap_paterno" value="" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="">Apellido Materno</label>
+              <input type="text" class="form-control" name="ap_materno" value="" required>
+            </div>
+
+          </div>
+
+          <div class="form-group col-md-12">
+
+            <div class="col-md-6">
+              <label for="">Password</label>
+              <input type="password" class="form-control" name="password" value="" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="">Área</label>
+              <select class="form-control" name="id_area">
+                <?php
+                $Q_Area = "SELECT * FROM area";
+                $E_Area = pg_query($conexionCon,$Q_Area) or die('Error en consulta');
+                while ($row = pg_fetch_row($E_Area)){
+                  echo '<option value="'.$row[0].'">'.$row[1].'</option>';
+                }
+                 ?>
+              </select>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
 
   <div class="control-sidebar-bg"></div>
 </div>
+<!-- /.content-wrapper -->
+
 <!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-
-<script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
-</script>
-</body>
-</html>
+<?php include_once 'includes/templates/footer.php';  ?>
+<?php
+  else:
+  $_SESSION['error_login'] = '¡Error al ingresar sesión!';
+  header('location: index.php');
+  endif;
+ ?>

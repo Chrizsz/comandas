@@ -5,3 +5,11 @@ function mostrarDetalles(id_ticket){
       $("#modalCobrar").modal("show");
     });
   }
+
+  function editarUsuario(id_usuario){
+      var ruta = "includes/consultas/modal_editar_usuario.php?id_usuario="+id_usuario;
+      $.get(ruta, function(data){
+        $("#resultadoEditarUsuario").html(data);
+        $("#modalEditarUsuario").modal("show");
+      });
+    }
