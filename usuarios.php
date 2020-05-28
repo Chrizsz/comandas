@@ -74,7 +74,7 @@ if(isset($_SESSION['usuario'])):
                       <button class="btn btn-warning" onclick="editarUsuario('.$row[0].')"><i class="fa fa-pencil"></i></button>
 
                     </div></td>
-                    <tr/>';
+                    </tr>';
             }
              ?>
 

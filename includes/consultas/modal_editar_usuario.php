@@ -15,6 +15,9 @@ echo '
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <form action="includes/back/update_usuario.php" method="post">
+
       <div class="modal-body">';
 
         $Q_CuentaPorCliente = "SELECT empleados.usuario, empleados.nombres, empleados.apellido_paterno,
@@ -22,8 +25,10 @@ echo '
         inner join area on empleados.id_area = area.id_area where empleados.id_empleado=$id_usuario";
         $E_CuentaPorCliente = pg_query($conexionCon,$Q_CuentaPorCliente) or die('Error en consulta');
         while ($row = pg_fetch_row($E_CuentaPorCliente)){
-          echo '<div class="form-group col-md-12">
 
+
+          echo '<div class="form-group col-md-12">
+            <input type="hidden" class="form-control" name="id_usuario" value="'.$id_usuario.'">
             <div class="col-md-6">
               <label for="">Usuario</label>
               <input type="text" class="form-control" name="usuario" value="'.$row[0].'" required>
@@ -80,15 +85,15 @@ echo '
 
         }
 
-
-
-
     echo  '
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Cobrar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
       </div>
+
+      </form>
+
     </div>
   </div>
 </div>'

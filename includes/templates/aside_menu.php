@@ -55,8 +55,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href=""><i class="fa fa-circle-o"></i> USUARIOS</a></li>
-          <li><a href=""><i class="fa fa-circle-o"></i> COMANDAS</a></li>
+          <li><a href="inventarios.php"><i class="fa fa-circle-o"></i> PRODUCTOS</a></li>
         </ul>
       </li>
 
