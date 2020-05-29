@@ -13,7 +13,7 @@ if(isset($_SESSION['error_login'])){
   $password = pg_escape_string($conexionCon, $_POST['password']);
 
   //Consulta para comprobar las credenciales del usuario
-  $Q_ValidadorUsuario = "SELECT * from empleados where usuario='$usuario' LIMIT 1";
+  $Q_ValidadorUsuario = "SELECT * from empleados where usuario='$usuario' and id_estatus='1' LIMIT 1";
   $login = pg_query($conexionCon,$Q_ValidadorUsuario) or die('Error en consulta de login');
   if($login and pg_num_rows($login)==1){
     $user = pg_fetch_assoc($login);
