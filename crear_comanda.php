@@ -36,7 +36,7 @@ if(isset($_SESSION['usuario'])):
                 <label for="">Mesa</label>
                 <select class="form-control" name="mesa">
                   <?php
-                  $Q_Mesa = "SELECT id_mesa from mesa where disponible='t'";
+                  $Q_Mesa = "SELECT id_mesa from mesa where disponible='t' order by id_mesa";
                   $E_Mesa = pg_query($conexionCon,$Q_Mesa) or die('Error en consulta');
                   while ($row = pg_fetch_row($E_Mesa)){
                     echo '<option value="'.$row[0].'">'.$row[0].'</option>';

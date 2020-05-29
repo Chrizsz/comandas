@@ -57,3 +57,37 @@ $(document).on('click','.btnActivar',function(){
 
 
 })
+
+//Cantidad productos
+$('.modificarProducto').change(function(){
+
+  var idProducto = $(this).attr('idProducto');
+  var cantidadProducto = $(this).val();
+
+  var datos = new FormData();
+  datos.append('idProducto', idProducto);
+  datos.append('cantidadProducto', cantidadProducto);
+
+  $.ajax({
+
+    url: 'includes/consultas/modificar_cantidad.php',
+    method: 'POST',
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+  success: function(respuesta){
+
+    if(window.matchMedia('(max-width:767px)').matches){
+
+      window.location = 'usuarios.php';
+
+    }
+
+  }
+
+  })
+
+
+
+})

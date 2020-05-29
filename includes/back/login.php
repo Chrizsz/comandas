@@ -25,8 +25,27 @@ if(isset($_SESSION['error_login'])){
       //Utilizar session para guardar los datos del usuario
       $_SESSION['usuario']=$user;
 
+      switch ($_SESSION['usuario']['id_area']) {
+        case '1':
+          header('location: ../../gestion_comanda.php');
+          break;
+
+          case '2':
+            header('location: ../../cocinero.php');
+            break;
+
+            case '3':
+              header('location: ../../crear_comanda.php');
+              break;
+
+              case '4':
+                header('location: ../../cobrar_comanda.php');
+                break;
+
+      }
+
       //Si los datos son corectos redirigir a la pagina
-      header('location: ../../crear_comanda.php');
+
     }else{
       //Si algo falla envíar session con el fallo
       $_SESSION['error_login'] = '¡Error al ingresar sesión!';
